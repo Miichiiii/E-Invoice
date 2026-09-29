@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>InvoiceAI – Rechnungen auswerten</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<link rel="stylesheet" href="Invoice.css"></head><body><div class="app">
+<div id="ov" onclick="sbToggle(false)"></div>
+<aside id="sb">
+  <div class="lg">InvoiceAI</div><div class="lgsub">Rechnungen erfassen &amp; auswerten</div>
+  <div class="sec">Navigation</div>
+  <nav id="nv"></nav>
+  <div class="sec">Filter &amp; Schwellen</div>
+  <label>Ansicht (Rolle)</label><select id="rf"></select>
+  <label>Confidence-Schwellen</label>
+  <div class="thr">prüfen &lt; <input id="tl" type="number" step="5" value="70">%</div>
+  <div class="thr" style="margin-top:6px">sicher &gt; <input id="th" type="number" step="5" value="90">%</div>
+</aside>
+<div class="w2">
+<div id="mobbar"><button onclick="sbToggle(true)">☰</button><b>InvoiceAI</b></div>
+
+<div id="v-x" style="display:none"></div><div id="v-t"><div class="card" id="dz"><b>Rechnung hierher ziehen</b><span class="sub">oder <u>PDF auswählen</u> · auch XRechnung/ZUGFeRD-XML · mehrere Dateien möglich · Verarbeitung im Browser</span>
+<input id="fi" type="file" accept="application/pdf,.xml,application/xml,text/xml" multiple hidden><div class="q" id="q"></div></div>
+
+<div id="dash"></div>
+<div id="alerts"></div><div id="bw"></div>
+<div class="card" style="padding:0"><div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;gap:8px;flex-wrap:wrap">
+<b>Rechnungen</b><div style="display:flex;gap:8px"><input id="s" placeholder="Suche (Nummer, Lieferant, Kategorie…)" style="width:250px"><button class="btn g" id="ex">CSV</button></div></div>
+<div class="tw"><table><thead><tr><th>Status</th><th>Nr.</th><th>Lieferant</th><th>Datum</th><th>Fällig</th><th>Kategorie</th><th>Brutto</th><th>Zahlung</th><th>Confidence</th></tr></thead><tbody id="tb"></tbody></table></div></div>
+</div><div id="md"><div class="sp"><div id="pv"></div><div id="pn"></div></div></div>
+</div></div>
+<script src="Invoice.js"></script></body></html>
